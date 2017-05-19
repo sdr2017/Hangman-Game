@@ -48,9 +48,9 @@ var letterGuessInWord = splitCurrentWord.indexOf(letter);
         if (currentWord.includes(letter)) {
         alert("correct!")
         answer.splice(letterGuessInWord, 1, letter);
+        document.getElementById("puzzle").innerHTML = answer;
           }
         console.log(answer);
-    console.log(letterGuessInWord);
 
     countdown--;
     document.getElementById("countdown").innerHTML = "Number of guesses remaining " + countdown;
