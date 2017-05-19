@@ -6,35 +6,33 @@ document.addEventListener("DOMContentLoaded", function(){
 var characters = ["Bob", "Linda", "Tina", "Gene", "Louise", "Andy", "Ollie", "Tammy", "Zeke", "Mickey"];
 var wins = 0;
 
-//this is an empty array
 var word;
+//these are empty arrays
 var guess = [];
 var answer = [];
 
 var countdown = 15;
 
 //Computer randomly generating word from character array and printing in DOM
-
 var currentWord;
-function wordGenerate() {
-	currentWord = characters[Math.floor(Math.random() * characters.length)];
+	function wordGenerate() {
+		currentWord = characters[Math.floor(Math.random() * characters.length)];
+    }
+  wordGenerate();
 
-	//splitting the random word into an array
-	//var splitCurrentWord = currentWord.split("");
+//splitting the random word into an array
+var splitCurrentWord = currentWord.split("");
 	
-    for (var i = 0; i < currentWord.length; i++) {
+//taking the ramdom word and assigning and underscore for each letter
+    for (var i = 0; i < splitCurrentWord.length; i++) {
       answer[i] = "_ ";
-  }
+  	}
+            console.log(splitCurrentWord)
 
-  	word = answer.join(" ");
-  	document.getElementById("puzzle").innerHTML = word;
-}
-wordGenerate();
-
-/*for (var i = 0; i < splitCurrentWord.length; i++) {
-    	document.getElementById("puzzle").innerHTML = ;splitCurrentWord[i] = "_ ";
-      	console.log(splitCurrentWord);*/
-
+//printing the underscore random word to the DOM
+word = answer.join(" ");
+  document.getElementById("puzzle").innerHTML = word;
+	
 
 //Computer displaying the guessed letters
 document.onkeyup = function(event) {
@@ -45,10 +43,17 @@ document.onkeyup = function(event) {
     document.getElementById("lettersGuessed").innerHTML = guess;
     countdown--;
     document.getElementById("countdown").innerHTML = "Number of guesses remaining " + countdown;
-
+ 
+    if (guess[i] === "-") {
+        guess.innerHTML = "-";
+        space = 1;
+      } else {
+        guess.innerHTML = "_";
+      }
+    
+console.log(guess);
 }
 
-//trying to countdown number of guesses leftq
 
 
 function addWins() {
