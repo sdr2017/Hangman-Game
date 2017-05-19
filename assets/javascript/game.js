@@ -16,8 +16,9 @@ var countdown = 15;
 var currentWord;
 function wordGenerate() {
 	currentWord = characters[Math.floor(Math.random() * characters.length)];
-	document.getElementById("puzzle").innerHTML = currentWord;
-	console.log(currentWord);
+	var splitCurrentWord = currentWord.split("");
+	document.getElementById("puzzle").innerHTML = splitCurrentWord;
+	console.log(splitCurrentWord);
 }
 wordGenerate();
 
