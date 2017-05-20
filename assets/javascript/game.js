@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 //Array of characters computer can generate
-var characters = ["Bob", "Linda", "Tina", "Gene", "Louise", "Andy", "Ollie", "Tammy", "Zeke", "Mickey"];
+var characters = ["bob", "linda", "tina", "gene", "louise", "andy", "ollie", "tammy", "zeke", "mickey"];
 var wins = 0;
 
 var word;
@@ -36,25 +36,40 @@ var splitCurrentWord = currentWord.split("");
 //Computer displaying the guessed letters
 document.onkeyup = function(event) {
 
+//event.key is the key pressed
 var letter = event.key;
 var letterGuessInWord = splitCurrentWord.indexOf(letter);
+var correctGuess = []
+      console.log(letterGuessInWord);
+
 
   //event.key contains the letters pressed
   //.push means to push it into the array "guess"
 	guess.push(event.key);
     document.getElementById("lettersGuessed").innerHTML = guess;
     
- 
+        //if the guess is correct, add it to the DOM
         if (currentWord.includes(letter)) {
-        alert("correct!")
         answer.splice(letterGuessInWord, 1, letter);
         document.getElementById("puzzle").innerHTML = answer;
           }
-        console.log(answer);
 
+//pushing correct guesses to array
+for (var i = 0; i < currentWord; i++) {
+      correctGuess.push(letterGuessInWord);
+        }
+          if (correctGuess.length == word.length) {
+            alert("you won!");
+          }
+
+      console.log(correctGuess.length);
+
+
+    //counting down the number of guesses remaining
     countdown--;
     document.getElementById("countdown").innerHTML = "Number of guesses remaining " + countdown;
 }
+
 
 
 
