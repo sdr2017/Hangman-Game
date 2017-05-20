@@ -45,7 +45,11 @@ word = answer.join(" ");
         else {
         countdown--;
         document.getElementById("countdown").innerHTML = "Number of guesses remaining " + countdown;
-          }
+        }
+
+        if (countdown == 0) {
+          alert("you lost!");
+        }
 
         for (var i = 0; i < answer.length; i++)
           var n = answer.includes("_ ");
