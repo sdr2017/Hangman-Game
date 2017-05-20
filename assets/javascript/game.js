@@ -7,26 +7,23 @@ var characters = ["bob", "linda", "tina", "gene", "louise", "andy", "ollie", "ta
 var wins = 0;
 
 var word;
-//these are empty arrays
 var guess = [];
 var answer = [];
-
 var countdown = 15;
+var currentWord;
 
-      //Computer randomly generating word from character array
-      var currentWord;
-      	function wordGenerate() {
-      		currentWord = characters[Math.floor(Math.random() * characters.length)];
+    function wordGenerate() {
+      	currentWord = characters[Math.floor(Math.random() * characters.length)];
           }
-        wordGenerate();
+    wordGenerate();
 
 //splitting the random word into an array
 var splitCurrentWord = currentWord.split("");
 	
 //taking the ramdom word and assigning and underscore for each letter
-        for (var i = 0; i < splitCurrentWord.length; i++) {
-          answer[i] = "_ ";
-      	}
+    for (var i = 0; i < splitCurrentWord.length; i++) {
+        answer[i] = "_ ";
+      	 }
 
 //printing the underscore random word to the DOM
         word = answer.join(" ");
@@ -40,7 +37,7 @@ document.onkeyup = function(event) {
 var letter = event.key;
 var letterGuessInWord = splitCurrentWord.indexOf(letter);
 var correctGuess = []
-      console.log(letterGuessInWord);
+      console.log(correctGuess.length);
 
 
   //event.key contains the letters pressed
@@ -54,7 +51,7 @@ var correctGuess = []
         document.getElementById("puzzle").innerHTML = answer;
           }
 
-//pushing correct guesses to array
+//trying to push correct guesses to array
 for (var i = 0; i < currentWord; i++) {
       correctGuess.push(letterGuessInWord);
         }
@@ -62,7 +59,6 @@ for (var i = 0; i < currentWord; i++) {
             alert("you won!");
           }
 
-      console.log(correctGuess.length);
 
 
     //counting down the number of guesses remaining
