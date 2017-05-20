@@ -48,13 +48,15 @@ var letterGuessInWord = splitCurrentWord.indexOf(letter);
         document.getElementById("puzzle").innerHTML = answer;
           }
 
-for (var i = 0; i < answer.length; i++) {
-        if (answer[i] !== "_ ") {
-            alert("you won!");
-          }
- }
+  for (var i = 0; i < answer.length; i++)
+    var n = answer.includes("_ ");
+        if (n == false) {
+          alert("you won!")
+          } 
            console.log(word);
            console.log(answer);
+           console.log(n);
+           }
 
 
 
@@ -63,7 +65,7 @@ for (var i = 0; i < answer.length; i++) {
     //counting down the number of guesses remaining
     countdown--;
     document.getElementById("countdown").innerHTML = "Number of guesses remaining " + countdown;
-}
+
 
 
 
