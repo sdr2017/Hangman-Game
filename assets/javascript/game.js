@@ -56,16 +56,16 @@ var letterGuessInWord = splitCurrentWord.indexOf(letter);
            console.log(word);
            console.log(answer);
            console.log(n);
-           }
 
 
-
-
-
-    //counting down the number of guesses remaining
+           //counting down the number of guesses remaining
     countdown--;
     document.getElementById("countdown").innerHTML = "Number of guesses remaining " + countdown;
 
+           }
+
+
+    
 
 
 
