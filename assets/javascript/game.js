@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 //Array of characters computer can generate
-var characters = ["bob", "linda", "tina", "gene", "louise", "andy", "ollie", "tammy", "zeke", "mickey"];
+var characters = ["linda", "tina", "louise", "andy", "mickey"];
 var wins = 0;
 
 var word;
@@ -36,9 +36,6 @@ document.onkeyup = function(event) {
 //event.key is the key pressed
 var letter = event.key;
 var letterGuessInWord = splitCurrentWord.indexOf(letter);
-var correctGuess = []
-      console.log(correctGuess.length);
-
 
   //event.key contains the letters pressed
   //.push means to push it into the array "guess"
@@ -51,13 +48,15 @@ var correctGuess = []
         document.getElementById("puzzle").innerHTML = answer;
           }
 
-//trying to push correct guesses to array
-for (var i = 0; i < currentWord; i++) {
-      correctGuess.push(letterGuessInWord);
-        }
-          if (correctGuess.length == word.length) {
+for (var i = 0; i < answer.length; i++) {
+        if (answer[i] !== "_ ") {
             alert("you won!");
           }
+ }
+           console.log(word);
+           console.log(answer);
+
+
 
 
 
