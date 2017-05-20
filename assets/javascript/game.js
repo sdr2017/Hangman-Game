@@ -22,7 +22,6 @@ for (var i = 0; i < splitCurrentWord.length; i++) {
 word = answer.join(" ");
     document.getElementById("puzzle").innerHTML = word;
 
-	
 
     //Computer displaying the guessed letters
     document.onkeyup = function(event) {
