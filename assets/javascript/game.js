@@ -50,8 +50,9 @@ word = answer.join(" ");
           alert("you lost!");
         }
 
-        for (var i = 0; i < answer.length; i++)
+        for (var i = 0; i < answer.length; i++) {
           var n = answer.includes("_ ");
+          }
               if (n == false) {
                 alert("you won!");
                 document.getElementById("wins").innerHTML = ("Wins = " + wins++);
@@ -59,9 +60,7 @@ word = answer.join(" ");
                  console.log(word);
                  console.log(answer);
                  console.log(wins);
-
-
-           //counting down the number of guesses remaining
+        
         
     }
 
