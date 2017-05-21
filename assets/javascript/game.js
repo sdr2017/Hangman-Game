@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 //Array of characters computer can generate
-var characters = ["linda", "tina", "louise", "andy", "mickey"];
+var characters = ["linda", "tina", "louise", "andy", "mickey", "mort", "gale", "frond"];
 var wins = 0;
 var word;
 var guess = [];
@@ -12,7 +12,7 @@ var countdown = 15;
 
 var currentWord = characters[Math.floor(Math.random() * characters.length)];
 var splitCurrentWord = currentWord.split("");   
-	
+
 //taking the ramdom word and assigning and underscore for each letter
 for (var i = 0; i < splitCurrentWord.length; i++) {
     answer[i] = "_ ";
@@ -55,11 +55,13 @@ word = answer.join(" ");
           var n = answer.includes("_ ");
           }
               if (n == false) {
-                reset();
                 alert("you won!");
                 document.getElementById("wins").innerHTML = ("Wins = " + wins++);
+                document.getElementById("images").src = ("assets/images/" + currentWord + ".jpg");
+                document.getElementById("word").innerHTML = (currentWord);
+                reset();
                 } 
-                    
+                    console.log(currentWord);
     }
 
 function reset() {
