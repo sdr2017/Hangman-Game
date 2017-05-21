@@ -11,7 +11,7 @@ var answer = [];
 var countdown = 15;
 
 var currentWord = characters[Math.floor(Math.random() * characters.length)];
-var splitCurrentWord = currentWord.split("");    
+var splitCurrentWord = currentWord.split("");   
 	
 //taking the ramdom word and assigning and underscore for each letter
 for (var i = 0; i < splitCurrentWord.length; i++) {
@@ -43,10 +43,11 @@ word = answer.join(" ");
 
         else {
         countdown--;
-        document.getElementById("countdown").innerHTML = "Number of guesses remaining " + countdown;
+        document.getElementById("countdown").innerHTML = "Number of Guesses Remaining " + countdown;
         }
 
         if (countdown == 0) {
+          reset();
           alert("you lost!");
         }
 
@@ -54,16 +55,29 @@ word = answer.join(" ");
           var n = answer.includes("_ ");
           }
               if (n == false) {
+                reset();
                 alert("you won!");
                 document.getElementById("wins").innerHTML = ("Wins = " + wins++);
                 } 
-                 console.log(word);
-                 console.log(answer);
-                 console.log(wins);
-        
-        
+                    
     }
 
+function reset() {
+  guess = [];
+  answer = [];
+  countdown = 15;
+  document.getElementById("lettersGuessed").innerHTML = "";
+  document.getElementById("countdown").innerHTML = "Number of Guesses Remaining " + countdown;
+  currentWord = characters[Math.floor(Math.random() * characters.length)];
+  splitCurrentWord = currentWord.split("");    
+  for (var i = 0; i < splitCurrentWord.length; i++) {
+    answer[i] = "_ ";
+    }
+  word = answer.join(" ");
+    document.getElementById("puzzle").innerHTML = word;
+    console.log(word);
+    console.log(currentWord);
+}
 
 
 });
