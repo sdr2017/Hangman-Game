@@ -62,7 +62,8 @@ word = answer.join(" ");
           var n = answer.includes("_ ");
           }
               if (n == false) {
-                document.getElementById("wins").innerHTML = ("Wins = " + wins++);
+                wins++;
+                document.getElementById("wins").innerHTML = ("Wins = " + wins);
                 document.getElementById("images").src = ("assets/images/" + currentWord + ".jpg");
                 document.getElementById("word").innerHTML = (currentWord);
                 play()
