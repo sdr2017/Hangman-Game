@@ -9,6 +9,13 @@ var word;
 var guess = [];
 var answer = [];
 var countdown = 15;
+var audioElement = document.createElement("audio");
+  audioElement.setAttribute("src", "assets/sound/linda.mp3");
+function play() {
+audioElement.play();
+}
+console.log(audioElement);
+
 
 var currentWord = characters[Math.floor(Math.random() * characters.length)];
 var splitCurrentWord = currentWord.split("");   
@@ -59,6 +66,7 @@ word = answer.join(" ");
                 document.getElementById("wins").innerHTML = ("Wins = " + wins++);
                 document.getElementById("images").src = ("assets/images/" + currentWord + ".jpg");
                 document.getElementById("word").innerHTML = (currentWord);
+                play()
                 reset();
                 } 
                     console.log(currentWord);
