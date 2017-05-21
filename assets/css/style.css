@@ -25,8 +25,13 @@ h1 {
 	}
 
 #images {
+	float: left;
 	margin: 20px;
 	height: 200px;
+}
+
+#word {
+	float: left;
 }
 
 

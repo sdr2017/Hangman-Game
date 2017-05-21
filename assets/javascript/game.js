@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 //Array of characters computer can generate
-var characters = ["linda", "tina", "louise", "andy", "mickey", "mort", "gale", "frond"];
+var characters = ["linda", "tina", "louise", "andy", "mickey", "mort", "gayle", "frond"];
 var wins = 0;
 var word;
 var guess = [];
