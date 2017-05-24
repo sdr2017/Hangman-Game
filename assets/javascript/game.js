@@ -18,10 +18,10 @@ console.log(audioElement);
 
 
 var currentWord = characters[Math.floor(Math.random() * characters.length)];
-var splitCurrentWord = currentWord.split("");   
+//var splitCurrentWord = currentWord.split("");   
 
 //taking the ramdom word and assigning and underscore for each letter
-for (var i = 0; i < splitCurrentWord.length; i++) {
+for (var i = 0; i < currentWord.length; i++) {
     answer[i] = "_ ";
     }
 
@@ -35,15 +35,28 @@ word = answer.join(" ");
 
         //event.key is the key pressed
         var letter = event.key;
-        var letterGuessInWord = splitCurrentWord.indexOf(letter);
+        //var letterGuessInWord = currentWord.indexOf(letter);
 
         //event.key contains the letters pressed
         //.push means to push it into the array "guess"
       	guess.push(event.key);
         document.getElementById("lettersGuessed").innerHTML = guess;
+
+        var index = currentWord.indexOf(letter);
+
+        while (index > -1) {
+        // splice OR line below
+        answer[index] = letter;
+        index = currentWord.indexOf(letter);
+        }
+
+        if (index == -1){
+        countdown--;
+        document.getElementById("countdown").innerHTML = "Number of Guesses Remaining " + countdown;
+        }
     
         //if the guess is correct, add it to the DOM
-        if (currentWord.includes(letter)) {
+        /*if (currentWord.includes(letter)) {
         answer.splice(letterGuessInWord, 1, letter);
         document.getElementById("puzzle").innerHTML = answer;
           }
@@ -51,7 +64,7 @@ word = answer.join(" ");
         else {
         countdown--;
         document.getElementById("countdown").innerHTML = "Number of Guesses Remaining " + countdown;
-        }
+        }*/
 
         if (countdown == 0) {
           reset();
