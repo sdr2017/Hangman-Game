@@ -3,16 +3,16 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 //Array of characters computer can generate
-var characters = ["linda", "tina", "louise", "andy", "mickey", "mort", "gayle", "frond"];
+var characters = ["zeke", "linda", "andy", "frond", "gayle", "louise", "mickey", "mort", "tina", "bob",];
 var wins = 0;
 var word;
 var guess = [];
 var answer = [];
 var countdown = 15;
 var audioElement = document.createElement("audio");
-  audioElement.setAttribute("src", "assets/sound/linda.mp3");
+audioElement.setAttribute("src", "assets/sound/linda.mp3");
 function play() {
-audioElement.play();
+  audioElement.play();
 }
 console.log(audioElement);
 
@@ -22,12 +22,12 @@ var currentWord = characters[Math.floor(Math.random() * characters.length)];
 
 //taking the ramdom word and assigning and underscore for each letter
 for (var i = 0; i < currentWord.length; i++) {
-    answer[i] = "_ ";
-    }
+  answer[i] = "_ ";
+}
 
 //printing the underscore random word to the DOM
 word = answer.join(" ");
-    document.getElementById("puzzle").innerHTML = word;
+document.getElementById("puzzle").innerHTML = word;
 
 
     //Computer displaying the guessed letters
@@ -39,22 +39,25 @@ word = answer.join(" ");
 
         //event.key contains the letters pressed
         //.push means to push it into the array "guess"
-      	guess.push(event.key);
+        guess.push(event.key);
         document.getElementById("lettersGuessed").innerHTML = guess;
 
-        var index = currentWord.indexOf(letter);
 
-        while (index > -1) {
-        // splice OR line below
-        answer[index] = letter;
-        index = currentWord.indexOf(letter);
+        for (var i = 0; i < currentWord.length; i++) {
+            // var index = currentWord.includes(letter);
+            // splice OR line below
+            if (currentWord[i] == letter) {
+                answer[i] = letter;
+                document.getElementById("puzzle").innerHTML = answer;
+            }
         }
 
-        if (index == -1){
-        countdown--;
-        document.getElementById("countdown").innerHTML = "Number of Guesses Remaining " + countdown;
+        if (currentWord[i] !== letter) {
+            countdown--;
+            document.getElementById("countdown").innerHTML = "Number of Guesses Remaining " + countdown;
+            
         }
-    
+
         //if the guess is correct, add it to the DOM
         /*if (currentWord.includes(letter)) {
         answer.splice(letterGuessInWord, 1, letter);
@@ -64,43 +67,41 @@ word = answer.join(" ");
         else {
         countdown--;
         document.getElementById("countdown").innerHTML = "Number of Guesses Remaining " + countdown;
-        }*/
+      }*/
 
-        if (countdown == 0) {
-          reset();
-          alert("you lost!");
-        }
+      if (countdown == 0) {
+        reset();
+        alert("you lost!");
+      }
 
-        for (var i = 0; i < answer.length; i++) {
-          var n = answer.includes("_ ");
-          }
-              if (n == false) {
-                wins++;
-                document.getElementById("wins").innerHTML = ("Wins = " + wins);
-                document.getElementById("images").src = ("assets/images/" + currentWord + ".jpg");
-                document.getElementById("word").innerHTML = (currentWord);
-                play()
-                reset();
-                } 
-                    console.log(currentWord);
+      var n = answer.includes("_ ");
+      if (n == false) {
+        wins++;
+        document.getElementById("wins").innerHTML = ("Wins = " + wins);
+        document.getElementById("images").src = ("assets/images/" + currentWord + ".jpg");
+        document.getElementById("word").innerHTML = (currentWord);
+        play()
+        reset();
+      } 
+      console.log(currentWord);
     }
 
-function reset() {
-  guess = [];
-  answer = [];
-  countdown = 15;
-  document.getElementById("lettersGuessed").innerHTML = "";
-  document.getElementById("countdown").innerHTML = "Number of Guesses Remaining " + countdown;
-  currentWord = characters[Math.floor(Math.random() * characters.length)];
-  splitCurrentWord = currentWord.split("");    
-  for (var i = 0; i < splitCurrentWord.length; i++) {
-    answer[i] = "_ ";
+    function reset() {
+      guess = [];
+      answer = [];
+      countdown = 15;
+      document.getElementById("lettersGuessed").innerHTML = "";
+      document.getElementById("countdown").innerHTML = "Number of Guesses Remaining " + countdown;
+      currentWord = characters[Math.floor(Math.random() * characters.length)];
+      splitCurrentWord = currentWord.split("");    
+      for (var i = 0; i < splitCurrentWord.length; i++) {
+        answer[i] = "_ ";
+      }
+      word = answer.join(" ");
+      document.getElementById("puzzle").innerHTML = word;
+      console.log(word);
+      console.log(currentWord);
     }
-  word = answer.join(" ");
-    document.getElementById("puzzle").innerHTML = word;
-    console.log(word);
-    console.log(currentWord);
-}
 
 
-});
+  });
