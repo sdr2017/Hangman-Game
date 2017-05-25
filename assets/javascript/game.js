@@ -40,6 +40,7 @@ document.getElementById("puzzle").innerHTML = word;
         //event.key contains the letters pressed
         //.push means to push it into the array "guess"
         guess.push(event.key);
+
         document.getElementById("lettersGuessed").innerHTML = guess;
 
 
@@ -48,7 +49,8 @@ document.getElementById("puzzle").innerHTML = word;
             // splice OR line below
             if (currentWord[i] == letter) {
                 answer[i] = letter;
-                document.getElementById("puzzle").innerHTML = answer;
+                var show = answer.join(" ")
+                document.getElementById("puzzle").innerHTML = show;
             }
         }
 
