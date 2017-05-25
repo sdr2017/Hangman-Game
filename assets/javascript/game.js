@@ -40,8 +40,9 @@ document.getElementById("puzzle").innerHTML = word;
         //event.key contains the letters pressed
         //.push means to push it into the array "guess"
         guess.push(event.key);
-
-        document.getElementById("lettersGuessed").innerHTML = guess;
+        var lettersGuessed = guess.join(" ");
+        var upperGuessed = lettersGuessed.toUpperCase();
+        document.getElementById("lettersGuessed").innerHTML = upperGuessed;
 
 
         for (var i = 0; i < currentWord.length; i++) {
@@ -49,8 +50,9 @@ document.getElementById("puzzle").innerHTML = word;
             // splice OR line below
             if (currentWord[i] == letter) {
                 answer[i] = letter;
-                var show = answer.join(" ")
-                document.getElementById("puzzle").innerHTML = show;
+                var show = answer.join(" ");
+                var upperShow = show.toUpperCase();
+                document.getElementById("puzzle").innerHTML = upperShow;
             }
         }
 
@@ -73,7 +75,7 @@ document.getElementById("puzzle").innerHTML = word;
 
       if (countdown == 0) {
         reset();
-        alert("you lost!");
+        alert("You Lost!");
       }
 
       var n = answer.includes("_ ");
@@ -81,11 +83,11 @@ document.getElementById("puzzle").innerHTML = word;
         wins++;
         document.getElementById("wins").innerHTML = ("Wins = " + wins);
         document.getElementById("images").src = ("assets/images/" + currentWord + ".jpg");
-        document.getElementById("word").innerHTML = (currentWord);
+        var upperCurrentWord = currentWord.toUpperCase();
+        document.getElementById("word").innerHTML = (upperCurrentWord);
         play()
         reset();
       } 
-      console.log(currentWord);
     }
 
     function reset() {
