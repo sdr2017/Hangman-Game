@@ -35,7 +35,6 @@ document.getElementById("puzzle").innerHTML = word;
 
         //event.key is the key pressed
         var letter = event.key;
-        //var letterGuessInWord = currentWord.indexOf(letter);
 
         //event.key contains the letters pressed
         //.push means to push it into the array "guess"
@@ -44,10 +43,8 @@ document.getElementById("puzzle").innerHTML = word;
         var upperGuessed = lettersGuessed.toUpperCase();
         document.getElementById("lettersGuessed").innerHTML = upperGuessed;
 
-
+        //if the current word includes the letter guessed, replace the space in the answer with the letter
         for (var i = 0; i < currentWord.length; i++) {
-            // var index = currentWord.includes(letter);
-            // splice OR line below
             if (currentWord[i] == letter) {
                 answer[i] = letter;
                 var show = answer.join(" ");
@@ -55,23 +52,18 @@ document.getElementById("puzzle").innerHTML = word;
                 document.getElementById("puzzle").innerHTML = upperShow;
             }
         }
-
-        if (currentWord[i] !== letter) {
-            countdown--;
-            document.getElementById("countdown").innerHTML = "Number of Guesses Remaining " + countdown;
+        //if the current word does not include the letter guessed, remove one from available guesses
+        if (currentWord.includes(letter) || guess[i] === letter) {
             
         }
 
-        //if the guess is correct, add it to the DOM
-        /*if (currentWord.includes(letter)) {
-        answer.splice(letterGuessInWord, 1, letter);
-        document.getElementById("puzzle").innerHTML = answer;
-          }
-
         else {
-        countdown--;
-        document.getElementById("countdown").innerHTML = "Number of Guesses Remaining " + countdown;
-      }*/
+          countdown--;
+            document.getElementById("countdown").innerHTML = "Number of Guesses Remaining " + countdown;
+            console.log(guess);
+            console.log(answer);
+        }
+
 
       if (countdown == 0) {
         reset();
