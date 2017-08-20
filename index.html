@@ -15,68 +15,45 @@
 
 </head>
 
-<!--
-I need the computer to pick a character from Bob's Burgers
-I need the computer to display spaces equal to the number of letters in the character's name.
+	<body>
+		<div class="container">
+			<div class="row">
 
-I need the user to guess letters
+				<div class="col-md-6" id="title">
+					<img class="title" src="assets/images/title.jpg">
+				</div>
 
-I need the computer to compare the guesses to the letters in the character's name
-If a letter matches the guess then I need the computer to reveal the matched letter.
-If the guess does not match a letter then I need to subtract one from available guesses left. 
+				<div class="col-md-6" id="title">
+					<h1>HANGMAN</h1>
+				</div>
 
-If the user reveals the character then the image changes, music sounds, and score increases and game restarts
-If the user runs out of guesses then the game restarts
--->
-
-<body>
-<div class="container">
-	<div class="row">
-		<div class="col-md-6" id="title">
-			<img class="title" src="assets/images/title.jpg">
-		</div>	
-		<div class="col-md-6" id="title">
-			<h1>HANGMAN</h1>
-		</div>
-	</div>		
-</div>
-
-
-
-<div class="container">
-	<div class="row">
-		<div class="col-md-6">
-			<img id="images" src="assets/images/who.jpg" alt="Your Name">
-			<h2 id="word"></h2>
+			</div>		
 		</div>
 
 
-		<div class="col-md-6">
-			<h2>Press Any Key To Begin!</h2>
-			<h3 id="wins">Wins</h3>
-			<h3>Current Word</h3>
-			<h4 id="puzzle"></h4>
-			<h3 id="countdown">Number of guesses Remaining 15</h3>
-			<h3>Letters Already Guessed</h3>
-			<h4 id=lettersGuessed></h4>
 
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-6">
+					<img id="images" src="assets/images/who.jpg" alt="Your Name">
+					<h2 id="word"></h2>
+				</div>
+
+
+				<div class="col-md-6">
+					<h2>Press Any Key To Begin!</h2>
+					<h3 id="wins">Wins</h3>
+					<h3>Current Word</h3>
+					<h4 id="puzzle"></h4>
+					<h3 id="countdown">Number of guesses Remaining 15</h3>
+					<h3>Letters Already Guessed</h3>
+					<h4 id=lettersGuessed></h4>
+				</div>
+				
+			</div>
 		</div>
-	</div>
-</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
+	</body>
 </html>
